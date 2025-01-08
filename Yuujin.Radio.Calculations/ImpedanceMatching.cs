@@ -248,7 +248,7 @@ namespace Yuujin.Radio.Calculations
                 // so...
                 // [XL - XE] - given + [X1] - how we compensate = 0
                 //
-                // X1 = XE - XL 
+                // XE + X1 = -XL 
 
                 var RL = input.LoadImpedance.Real;
                 var XL = input.LoadImpedance.Imaginary;
@@ -263,8 +263,15 @@ namespace Yuujin.Radio.Calculations
                 var X2_2 = (-b - Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
 
                 var XE = (double X2) => ((X2 * R0 * R0) + (X0 * X0 * X2) + (X0 * X2 * X2)) / (R0 * R0 + (X0 + X2) * (X0 + X2));
-                var X1_1 = XE(X2_1) - XL;
-                var X1_2 = XE(X2_2) - XL;
+                var X1_1 = -XL - XE(X2_1);
+                var X1_2 = -XL - XE(X2_2);
+
+                // sanity check
+                // 1/ZE = 1/Z2 + 1/Z0
+                var ZE_1 = 1 / (1 / new Complex(0.0, X2_1) + 1 / input.SourceImpedance);
+                var ZE_2 = 1 / (1 / new Complex(0.0, X2_2) + 1 / input.SourceImpedance);
+
+                ;
 
                 // Add first solution
                 result.Add(new ImpedanceMatchingOutput()
