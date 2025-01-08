@@ -148,7 +148,7 @@ namespace Yuujin.Radio.Calculations
                     SourceImpedance = input.SourceImpedance,
                     LoadImpedance = input.LoadImpedance,
 
-                    NetworkType = NetworkType.SeriesFirst,
+                    NetworkType = MatchingNetworkType.LSectionSeriesFirst,
 
                     SeriesImpedance = new Complex(0, X1_1),
                     SeriesReactance = Conversions.ImpedanceToReactance(X1_1, input.Frequency),
@@ -164,7 +164,7 @@ namespace Yuujin.Radio.Calculations
                     SourceImpedance = input.SourceImpedance,
                     LoadImpedance = input.LoadImpedance,
 
-                    NetworkType = NetworkType.SeriesFirst,
+                    NetworkType = MatchingNetworkType.LSectionSeriesFirst,
 
                     SeriesImpedance = new Complex(0, X1_2),
                     SeriesReactance = Conversions.ImpedanceToReactance(X1_2, input.Frequency),
@@ -192,7 +192,7 @@ namespace Yuujin.Radio.Calculations
                     SourceImpedance = input.SourceImpedance,
                     LoadImpedance = input.LoadImpedance,
 
-                    NetworkType = NetworkType.SeriesOnly,
+                    NetworkType = MatchingNetworkType.LSectionSeriesOnly,
 
                     SeriesImpedance = new Complex(0, imaginaryDifference),
                     SeriesReactance = Conversions.ImpedanceToReactance(imaginaryDifference, input.Frequency),
@@ -273,7 +273,7 @@ namespace Yuujin.Radio.Calculations
                     SourceImpedance = input.SourceImpedance,
                     LoadImpedance = input.LoadImpedance,
 
-                    NetworkType = NetworkType.ShuntFirst,
+                    NetworkType = MatchingNetworkType.LSectionShuntFirst,
 
                     SeriesImpedance = new Complex(0, X1_1),
                     SeriesReactance = Conversions.ImpedanceToReactance(X1_1, input.Frequency),
@@ -289,7 +289,7 @@ namespace Yuujin.Radio.Calculations
                     SourceImpedance = input.SourceImpedance,
                     LoadImpedance = input.LoadImpedance,
 
-                    NetworkType = NetworkType.ShuntFirst,
+                    NetworkType = MatchingNetworkType.LSectionShuntFirst,
 
                     SeriesImpedance = new Complex(0, X1_2),
                     SeriesReactance = Conversions.ImpedanceToReactance(X1_2, input.Frequency),

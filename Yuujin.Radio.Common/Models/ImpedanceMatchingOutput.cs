@@ -9,7 +9,7 @@ namespace Yuujin.Radio.Common.Models
 {
     public class ImpedanceMatchingOutput
     {
-        public NetworkType NetworkType { get; set; }
+        public MatchingNetworkType NetworkType { get; set; }
         public double Frequency { get; set; }
 
         public Complex LoadImpedance { get; set; }
@@ -21,12 +21,12 @@ namespace Yuujin.Radio.Common.Models
         public string SeriesReactance { get; set; } = null!;
     }
 
-    public enum NetworkType
+    public enum MatchingNetworkType
     {
         None,
-        ShuntFirst,
-        SeriesFirst,
-        SeriesOnly,
-        ShuntOnly
+        LSectionShuntFirst,
+        LSectionSeriesFirst,
+        LSectionSeriesOnly,
+        LSectionShuntOnly
     }
 }

@@ -69,9 +69,20 @@ namespace Yuujin.Radio.HAMToys.CLI.Utils
             Console.SetCursorPosition(initialPosition.Left, initialPosition.Top);
         }
 
+        public static void ClearLines(int from, int to)
+        {
+            for (int line = from; line <= to; line++)
+            {
+                var clearString = new string(' ', Console.WindowWidth);
+                Console.SetCursorPosition(0, line);
+                Console.Write(clearString);
+            }
+        }
+
         public static string PresentOptions(string label, Dictionary<string, string> options)
         {
-            Console.Write(label);
+            Console.Write($"{label.PadRight(Console.WindowWidth)}");
+            Console.SetCursorPosition(label.Length, Console.CursorTop);
             var inputFieldPosition = Console.GetCursorPosition();
             Console.WriteLine();
 
@@ -79,6 +90,8 @@ namespace Yuujin.Radio.HAMToys.CLI.Utils
             {
                 Console.WriteLine($"\t[{option.Key}]: {option.Value}");
             }
+
+            var endCursorPosition = Console.GetCursorPosition();
 
             while (true)
             {
@@ -92,6 +105,7 @@ namespace Yuujin.Radio.HAMToys.CLI.Utils
                     continue;
                 }
 
+                Console.SetCursorPosition(endCursorPosition.Left, endCursorPosition.Top + 1);
                 return selectedOption!;
             }
         }
