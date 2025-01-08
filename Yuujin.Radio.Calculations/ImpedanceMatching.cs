@@ -263,8 +263,8 @@ namespace Yuujin.Radio.Calculations
                 var X2_2 = (-b - Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
 
                 var XE = (double X2) => ((X2 * R0 * R0) + (X0 * X0 * X2) + (X0 * X2 * X2)) / (R0 * R0 + (X0 + X2) * (X0 + X2));
-                var X1_1 = -XL - XE(X2_1);
-                var X1_2 = -XL - XE(X2_2);
+                var X1_1 = XL - XE(X2_1);
+                var X1_2 = XL - XE(X2_2);
 
                 // sanity check
                 // 1/ZE = 1/Z2 + 1/Z0
