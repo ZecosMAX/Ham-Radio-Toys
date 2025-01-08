@@ -105,7 +105,12 @@ namespace Yuujin.Radio.HAMToys.CLI.Utils
                     continue;
                 }
 
-                Console.SetCursorPosition(endCursorPosition.Left, endCursorPosition.Top + 1);
+                try
+                {
+                    Console.SetCursorPosition(endCursorPosition.Left, endCursorPosition.Top + 1);
+                }
+                catch (Exception e) { }
+
                 return selectedOption!;
             }
         }

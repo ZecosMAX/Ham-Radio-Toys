@@ -19,10 +19,10 @@ namespace Yuujin.Radio.HAMToys.CLI.Utils
                     Console.WriteLine("None...");
                     break;
                 case MatchingNetworkType.LSectionShuntFirst:
-                    PrintLSectionTypeA();
+                    PrintLSectionTypeB();
                     break;
                 case MatchingNetworkType.LSectionSeriesFirst:
-                    PrintLSectionTypeB();
+                    PrintLSectionTypeA();
                     break;
                 case MatchingNetworkType.LSectionSeriesOnly:
                     PrintLSectionTypeC();

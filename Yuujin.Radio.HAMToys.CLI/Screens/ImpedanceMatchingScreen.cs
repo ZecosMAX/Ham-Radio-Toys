@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Yuujin.Radio.Calculations;
+using Yuujin.Radio.Common.Math;
 using Yuujin.Radio.Common.Models;
 using Yuujin.Radio.HAMToys.CLI.Utils;
 
@@ -71,7 +72,11 @@ namespace Yuujin.Radio.HAMToys.CLI.Screens
                     }
                     else
                     {
-
+                        Console.WriteLine($"Found {solutions.Count} solutions:");
+                        for (int i = 0; i < solutions.Count; i++)
+                        {
+                            PrintSolution($"Solution #{i + 1}", solutions[i]);
+                        }
                     }
 
                     Console.WriteLine();
@@ -101,6 +106,18 @@ namespace Yuujin.Radio.HAMToys.CLI.Screens
             {
                 Console.Clear();
             }
+        }
+
+        private static void PrintSolution(string label, ImpedanceMatchingOutput solution)
+        {
+            Console.WriteLine("=============================================");
+            Console.WriteLine(label);
+            RadioPrints.PrintMatchingNetworkType(solution.NetworkType);
+            Console.WriteLine();
+
+            Console.WriteLine($"\tShunt  Impedance: X2 : {solution.ShuntImpedance.Imaginary:+0.000;-0.000} Ω ({Conversions.ImpedanceToReactance(solution.ShuntImpedance.Imaginary, solution.Frequency)})");
+            Console.WriteLine($"\tSeries Impedance: X1 : {solution.SeriesImpedance.Imaginary:+0.000;-0.000} Ω ({Conversions.ImpedanceToReactance(solution.SeriesImpedance.Imaginary, solution.Frequency)})");
+            Console.WriteLine("=============================================");
         }
     }
 }
