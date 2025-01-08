@@ -21,7 +21,7 @@ namespace Yuujin.Radio.HAMToys.CLI
                     Console.WriteLine("██╔══██║██╔══██║██║╚██╔╝██║    ██╔══██╗██╔══██║██║  ██║██║██║   ██║       ██║   ██║   ██║  ╚██╔╝  ╚════██║");
                     Console.WriteLine("██║  ██║██║  ██║██║ ╚═╝ ██║    ██║  ██║██║  ██║██████╔╝██║╚██████╔╝       ██║   ╚██████╔╝   ██║   ███████║");
                     Console.WriteLine("╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝    ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝ ╚═════╝        ╚═╝    ╚═════╝    ╚═╝   ╚══════╝");
-                    Console.WriteLine("============= Yuujin Birukofu (R3BAR) et. al. Version 0.0.1 (c) The Dawn of Time -- 2025 AD  =============");
+                    Console.WriteLine("============= Yuujin Birukofu (R3BAR) et. al. Version 0.0.2 (c) The Dawn of Time -- 2025 AD  =============");
                     Console.ResetColor();
 
                     var screenStack = "Main Screen";
